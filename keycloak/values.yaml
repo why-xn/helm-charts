@@ -7,6 +7,7 @@ config:
   dbName: keycloak
   dbUser: keycloak
   dbPassword: change_it
+  host: "pem-auth.primemory.hk"
 
 nameOverride: ""
 fullnameOverride: ""
@@ -22,11 +23,11 @@ ingress:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/proxy-body-size: 100m
   hosts:
-    - host: keycloak.tigerfire.logi-cloud.asia
+    - host: pem-auth.primemory.hk
       paths:
         - path: /
           pathType: ImplementationSpecific
   tls:
-  - secretName: tf-wild-cert-secret
+  - secretName: ssl-cert-secret
     hosts:
-    - keycloak.tigerfire.logi-cloud.asia
+    - pem-auth.primemory.hk
